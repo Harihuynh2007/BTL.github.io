@@ -1,0 +1,665 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.8" pages="7">
+  <diagram name="1. Authentication State" id="VESq2eCRPg8tFur5-0ZT">
+    <mxGraphModel dx="1015" dy="454" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="auth-title" value="Authentication State Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontFamily=Poppins;" parent="1" vertex="1">
+          <mxGeometry x="400" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="570" y="120" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-not-auth" value="Not Authenticated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=Poppins;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="485" y="200" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-not-auth-desc" value="login.html visible&#xa;waiting for user input" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="485" y="265" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-arrow-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" source="auth-start" target="auth-not-auth" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-authenticating" value="Authenticating" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontFamily=Poppins;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="485" y="340" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-authenticating-desc" value="Firebase processing&#xa;validating credentials" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="485" y="405" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-arrow-2" value="signUp / signIn&#xa;googleAuth / facebookAuth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" parent="1" source="auth-not-auth" target="auth-authenticating" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-authenticated" value="Authenticated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontFamily=Poppins;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="485" y="480" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-authenticated-desc" value="Redirect to dashboard.html&#xa;Real-time listener active" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="485" y="545" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-arrow-3" value="success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;strokeColor=#00aa00;" parent="1" source="auth-authenticating" target="auth-authenticated" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-arrow-4" value="error&#xa;invalid credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;strokeColor=#ff0000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="auth-authenticating" target="auth-not-auth" edge="1">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="370" />
+              <mxPoint x="430" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="auth-logout" value="Logging Out" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontFamily=Poppins;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="485" y="620" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-logout-desc" value="auth.signOut() processing" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="485" y="685" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-arrow-5" value="click logout button" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" parent="1" source="auth-authenticated" target="auth-logout" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-arrow-6" value="complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="auth-logout" target="auth-not-auth" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="650" />
+              <mxPoint x="740" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="2. Task Lifecycle" id="P61Ude1sOobh6F1jpTGg">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="task-title" value="Task Lifecycle State Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontFamily=Poppins;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+        <!-- Start State -->
+        <mxCell id="task-start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="170" y="135" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Draft State -->
+        <mxCell id="task-draft" value="Draft" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="task-draft-desc" value="Add Task Modal&#xa;User filling form" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="250" y="185" width="120" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Start to Draft -->
+        <mxCell id="task-arrow-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;" edge="1" parent="1" source="task-start" target="task-draft">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Todo State -->
+        <mxCell id="task-todo" value="Todo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#ff9900;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="120" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="task-todo-desc" value="status: &quot;todo&quot;&#xa;In &quot;To do&quot; column" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="440" y="185" width="140" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Draft to Todo -->
+        <mxCell id="task-arrow-2" value="btn_add click&#xa;push() + set()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="1" source="task-draft" target="task-todo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Doing State -->
+        <mxCell id="task-doing" value="Doing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#3399ff;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="280" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="task-doing-desc" value="status: &quot;doing&quot;&#xa;In &quot;In Progress&quot; column" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="440" y="345" width="140" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Todo to Doing -->
+        <mxCell id="task-arrow-3" value="Drag &amp; Drop&#xa;update({status:&quot;doing&quot;})" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="1" source="task-todo" target="task-doing">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Doing to Todo -->
+        <mxCell id="task-arrow-4" value="Drag back" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="task-doing" target="task-todo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="310" />
+              <mxPoint x="400" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Done State -->
+        <mxCell id="task-done" value="Done" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#00aa00;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="task-done-desc" value="status: &quot;done&quot;&#xa;In &quot;Done&quot; column" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="440" y="505" width="140" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Doing to Done -->
+        <mxCell id="task-arrow-5" value="Drag &amp; Drop&#xa;update({status:&quot;done&quot;})" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="1" source="task-doing" target="task-done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Done to Doing -->
+        <mxCell id="task-arrow-6" value="Drag back" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="task-done" target="task-doing">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="470" />
+              <mxPoint x="380" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: Todo to Done (direct) -->
+        <mxCell id="task-arrow-7" value="Direct drag" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="task-todo" target="task-done">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="150" />
+              <mxPoint x="640" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Edit State -->
+        <mxCell id="task-edit" value="Edit Mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="280" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="task-edit-desc" value="Edit Task Modal&#xa;Modifying fields" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="740" y="345" width="140" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Any state to Edit -->
+        <mxCell id="task-arrow-8" value="Click task&#xa;edit-task-active" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="task-doing" target="task-edit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Edit to original state -->
+        <mxCell id="task-arrow-9" value="btn_edit click&#xa;update()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="task-edit" target="task-doing">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Deleted State -->
+        <mxCell id="task-deleted" value="Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#ff0000;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="task-deleted-desc" value="set(null)&#xa;Removed from Firebase" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="740" y="505" width="140" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Any state to Deleted -->
+        <mxCell id="task-arrow-10" value="Click trash icon&#xa;Confirm delete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#ff0000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="task-done" target="task-deleted">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- End State -->
+        <mxCell id="task-end" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="795" y="585" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="task-end-inner" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="801" y="591" width="18" height="18" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Deleted to End -->
+        <mxCell id="task-arrow-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;" edge="1" parent="1" source="task-deleted" target="task-end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="3. Priority Auto-calculation" id="qqgSN4f0z-1I5qyUC_rm">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="priority-title" value="Priority Auto-calculation State Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontFamily=Poppins;" vertex="1" parent="1">
+          <mxGeometry x="350" y="40" width="500" height="40" as="geometry" />
+        </mxCell>
+        <!-- Start -->
+        <mxCell id="pri-start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="570" y="120" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Created State -->
+        <mxCell id="pri-created" value="Task Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="170" height="60" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Start to Created -->
+        <mxCell id="pri-arrow-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;" edge="1" parent="1" source="pri-start" target="pri-created">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Low Priority -->
+        <mxCell id="pri-low" value="Low Priority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#00ff00;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="330" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-low-desc" value="&gt; 3 days until due date&#xa;rgb(0, 255, 0)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="230" y="395" width="170" height="30" as="geometry" />
+        </mxCell>
+        <!-- Medium Priority -->
+        <mxCell id="pri-medium" value="Medium Priority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#ff9900;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="330" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-medium-desc" value="1-3 days until due date&#xa;rgb(255, 165, 0)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="500" y="395" width="170" height="30" as="geometry" />
+        </mxCell>
+        <!-- High Priority -->
+        <mxCell id="pri-high" value="High Priority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#ff0000;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="330" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-high-desc" value="&lt; 1 day until due date&#xa;rgb(255, 0, 0)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="770" y="395" width="170" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrows from Created -->
+        <mxCell id="pri-arrow-2" value="Calculate&#xa;&gt; 3 days" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#00aa00;" edge="1" parent="1" source="pri-created" target="pri-low">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-arrow-3" value="Calculate&#xa;1-3 days" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#ff9900;" edge="1" parent="1" source="pri-created" target="pri-medium">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-arrow-4" value="Calculate&#xa;&lt; 1 day" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#ff0000;" edge="1" parent="1" source="pri-created" target="pri-high">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Time Progression Arrows -->
+        <mxCell id="pri-arrow-5" value="Time passes&#xa;3 days left" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="1" source="pri-low" target="pri-medium">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-arrow-6" value="Time passes&#xa;1 day left" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="1" source="pri-medium" target="pri-high">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Overdue State -->
+        <mxCell id="pri-overdue" value="Overdue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8b0000;strokeColor=#8b0000;fontColor=#ffffff;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="480" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-overdue-desc" value="Past due date&#xa;rgb(139, 0, 0)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="770" y="545" width="170" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Created to Overdue (direct) -->
+        <mxCell id="pri-arrow-7" value="Calculate&#xa;Past due" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#8b0000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="pri-created" target="pri-overdue">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="230" />
+              <mxPoint x="720" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: High to Overdue -->
+        <mxCell id="pri-arrow-8" value="Deadline passed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#8b0000;" edge="1" parent="1" source="pri-high" target="pri-overdue">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Done Priority State -->
+        <mxCell id="pri-done" value="Done Priority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#00aa00;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="620" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-done-desc" value="Task moved to Done column&#xa;Priority = &quot;Done&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="500" y="685" width="170" height="30" as="geometry" />
+        </mxCell>
+        <!-- Arrows to Done Priority -->
+        <mxCell id="pri-arrow-9" value="Move to Done" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#00aa00;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="pri-low" target="pri-done">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="315" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pri-arrow-10" value="Move to Done" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#00aa00;" edge="1" parent="1" source="pri-medium" target="pri-done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-arrow-11" value="Move to Done" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#00aa00;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="pri-high" target="pri-done">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pri-arrow-12" value="Move to Done" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;strokeColor=#00aa00;" edge="1" parent="1" source="pri-overdue" target="pri-done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- End State -->
+        <mxCell id="pri-end" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="570" y="750" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-end-inner" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="576" y="756" width="18" height="18" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Done to End -->
+        <mxCell id="pri-arrow-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;" edge="1" parent="1" source="pri-done" target="pri-end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Note Box -->
+        <mxCell id="pri-note" value="⏰ Auto-calculated every 1000ms&#xa;Updates in real-time&#xa;Updates Firebase when changed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontFamily=Poppins;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="480" width="220" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="4. UI Modal States" id="4X3m4Caus9XcFF01TzTy">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="modal-title" value="UI Modal State Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontFamily=Poppins;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+        <!-- Add Task Modal Section -->
+        <mxCell id="modal-add-container" value="Add Task Modal" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;fontFamily=Poppins;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="120" y="120" width="400" height="320" as="geometry" />
+        </mxCell>
+        <!-- Closed State (Add) -->
+        <mxCell id="modal-add-closed" value="Closed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="modal-add-container">
+          <mxGeometry x="140" y="50" width="120" height="50" as="geometry" />
+        </mxCell>
+        <!-- Opening State (Add) -->
+        <mxCell id="modal-add-opening" value="Opening" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="modal-add-container">
+          <mxGeometry x="140" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <!-- Open State (Add) -->
+        <mxCell id="modal-add-open" value="Open" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="modal-add-container">
+          <mxGeometry x="140" y="210" width="120" height="50" as="geometry" />
+        </mxCell>
+        <!-- Arrows Add Modal -->
+        <mxCell id="modal-add-arrow-1" value="Click + icon&#xa;add-task-active" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="modal-add-container" source="modal-add-closed" target="modal-add-opening">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="modal-add-arrow-2" value="CSS animation&#xa;complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="modal-add-container" source="modal-add-opening" target="modal-add-open">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="modal-add-arrow-3" value="btn_cancel&#xa;btn_add&#xa;blur click" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="modal-add-container" source="modal-add-open" target="modal-add-closed">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="235" />
+              <mxPoint x="60" y="75" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Edit Task Modal Section -->
+        <mxCell id="modal-edit-container" value="Edit Task Modal" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;fontFamily=Poppins;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="120" width="400" height="320" as="geometry" />
+        </mxCell>
+        <!-- Closed State (Edit) -->
+        <mxCell id="modal-edit-closed" value="Closed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="modal-edit-container">
+          <mxGeometry x="140" y="50" width="120" height="50" as="geometry" />
+        </mxCell>
+        <!-- Opening State (Edit) -->
+        <mxCell id="modal-edit-opening" value="Opening" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="modal-edit-container">
+          <mxGeometry x="140" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <!-- Open State (Edit) -->
+        <mxCell id="modal-edit-open" value="Open" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="modal-edit-container">
+          <mxGeometry x="140" y="210" width="120" height="50" as="geometry" />
+        </mxCell>
+        <!-- Arrows Edit Modal -->
+        <mxCell id="modal-edit-arrow-1" value="Click task-item&#xa;edit-task-active" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="modal-edit-container" source="modal-edit-closed" target="modal-edit-opening">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="modal-edit-arrow-2" value="CSS animation&#xa;complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;" edge="1" parent="modal-edit-container" source="modal-edit-opening" target="modal-edit-open">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="modal-edit-arrow-3" value="btn_cancel_edit&#xa;btn_edit&#xa;blur click" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=10;fontFamily=Poppins;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="modal-edit-container" source="modal-edit-open" target="modal-edit-closed">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="235" />
+              <mxPoint x="60" y="75" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Note Box -->
+        <mxCell id="modal-note" value="📝 CSS Classes:&#xa;• Closed: no class&#xa;• Open: add-task-active / edit-task-active&#xa;• Transition: opacity + display" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontFamily=Poppins;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="360" y="480" width="280" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="5. Theme State" id="kaX5T0IXY9BkPWSzFq-j">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="theme-title" value="Theme Toggle State Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontFamily=Poppins;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+        <!-- Start -->
+        <mxCell id="theme-start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="570" y="140" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Light Mode -->
+        <mxCell id="theme-light" value="Light Mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="250" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="theme-light-desc" value="• No darkmode class&#xa;• Light colors&#xa;• Sun icon active" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="250" y="335" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Transitioning -->
+        <mxCell id="theme-transition" value="Transitioning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="485" y="420" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="theme-transition-desc" value="• animation-circle active&#xa;• 500ms transition&#xa;• CSS animation running" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="485" y="505" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Dark Mode -->
+        <mxCell id="theme-dark" value="Dark Mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=#333333;fontColor=#ffffff;fontSize=16;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="250" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="theme-dark-desc" value="• html.darkmode class&#xa;• body.darkmode class&#xa;• Moon icon active" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="720" y="335" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Start to Light -->
+        <mxCell id="theme-arrow-1" value="Default" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" edge="1" parent="1" source="theme-start" target="theme-light">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Light to Transitioning -->
+        <mxCell id="theme-arrow-2" value="Click Dark Mode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" edge="1" parent="1" source="theme-light" target="theme-transition">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Transitioning to Dark -->
+        <mxCell id="theme-arrow-3" value="Animation complete&#xa;(500ms)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" edge="1" parent="1" source="theme-transition" target="theme-dark">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Dark to Transitioning -->
+        <mxCell id="theme-arrow-4" value="Click Light Mode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="theme-dark" target="theme-transition">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: Transitioning back to Light -->
+        <mxCell id="theme-arrow-5" value="Animation complete&#xa;(500ms)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="theme-transition" target="theme-light">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Code Reference -->
+        <mxCell id="theme-code" value="🔧 Implementation:&#xa;&#xa;function toggleMode(mode) {&#xa;  if (mode === &quot;dark&quot;) {&#xa;    html.classList.add(&quot;darkmode&quot;);&#xa;    body.classList.add(&quot;darkmode&quot;);&#xa;  } else {&#xa;    html.classList.remove(&quot;darkmode&quot;);&#xa;    body.classList.remove(&quot;darkmode&quot;);&#xa;  }&#xa;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontFamily=Courier New;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="200" y="600" width="770" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="6. Search State" id="Kof4FewaGm2nnq0PhRsF">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="search-title" value="Search Functionality State Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontFamily=Poppins;" vertex="1" parent="1">
+          <mxGeometry x="350" y="40" width="500" height="40" as="geometry" />
+        </mxCell>
+        <!-- Start -->
+        <mxCell id="search-start" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="570" y="140" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- No Filter State -->
+        <mxCell id="search-nofilter" value="No Filter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="485" y="230" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="search-nofilter-desc" value="• searchbar empty&#xa;• All tasks visible&#xa;• loadDataTask(listTask)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="485" y="315" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Start to No Filter -->
+        <mxCell id="search-arrow-1" value="Initial state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" edge="1" parent="1" source="search-start" target="search-nofilter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Filtering State -->
+        <mxCell id="search-filtering" value="Filtering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="485" y="430" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="search-filtering-desc" value="• User typing&#xa;• Keyup event triggered&#xa;• Processing search query" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="485" y="515" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Arrow: No Filter to Filtering -->
+        <mxCell id="search-arrow-2" value="User types in searchbar&#xa;keyup event" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" edge="1" parent="1" source="search-nofilter" target="search-filtering">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Filtered State -->
+        <mxCell id="search-filtered" value="Filtered" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;fontFamily=Poppins;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="430" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="search-filtered-desc" value="• Matching tasks shown&#xa;• Non-matching hidden&#xa;• loadDataTask(filteredData)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Poppins;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="750" y="515" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Filtering to Filtered -->
+        <mxCell id="search-arrow-3" value="Filter applied" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;" edge="1" parent="1" source="search-filtering" target="search-filtered">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Arrow: Filtered back to Filtering -->
+        <mxCell id="search-arrow-4" value="Continue typing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="search-filtered" target="search-filtering">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="380" />
+              <mxPoint x="720" y="380" />
+              <mxPoint x="720" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: Filtered to No Filter -->
+        <mxCell id="search-arrow-5" value="Search cleared&#xa;(empty input)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="search-filtered" target="search-nofilter">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Search Logic Box -->
+        <mxCell id="search-logic" value="🔍 Search Logic:&#xa;&#xa;Searches in:&#xa;• task.title.toLowerCase()&#xa;• task.desc.toLowerCase()&#xa;• task.category.toLowerCase()&#xa;&#xa;Match: Include in filteredData&#xa;No match: Exclude from display" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontFamily=Poppins;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="220" y="390" width="220" height="180" as="geometry" />
+        </mxCell>
+        <!-- End State -->
+        <mxCell id="search-end" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="570" y="650" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="search-end-inner" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="576" y="656" width="18" height="18" as="geometry" />
+        </mxCell>
+        <!-- Arrow to End (loop back) -->
+        <mxCell id="search-arrow-6" value="Continues..." style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=classic;endFill=1;fontSize=11;fontFamily=Poppins;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="search-nofilter" target="search-end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="585" y="400" />
+              <mxPoint x="420" y="400" />
+              <mxPoint x="420" y="665" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="7. Complete System Overview" id="EP-ZnzDgaWQvY9ru5Eeh">
+    <mxGraphModel dx="1015" dy="454" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system-title" value="TodoManager - Complete System State Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontFamily=Poppins;" parent="1" vertex="1">
+          <mxGeometry x="350" y="30" width="700" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="system-concurrent" value="Concurrent States (Can exist simultaneously)" style="swimlane;whiteSpace=wrap;html=1;fontSize=18;fontFamily=Poppins;fontStyle=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="100" y="120" width="1200" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="system-auth-region" value="Authentication State" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Poppins;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="30" y="50" width="270" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="system-auth-1" value="Not Authenticated" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-auth-region" vertex="1">
+          <mxGeometry x="50" y="50" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-auth-2" value="Authenticating" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-auth-region" vertex="1">
+          <mxGeometry x="50" y="110" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-auth-3" value="Authenticated" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#d5e8d4;strokeColor=#82b366;" parent="system-auth-region" vertex="1">
+          <mxGeometry x="50" y="170" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-auth-4" value="Logging Out" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-auth-region" vertex="1">
+          <mxGeometry x="50" y="230" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-task-region" value="Task Lifecycle State" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Poppins;fillColor=#fff2cc;strokeColor=#d6b656;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="330" y="50" width="270" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="system-task-1" value="Draft" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-task-region" vertex="1">
+          <mxGeometry x="50" y="50" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="system-task-2" value="Todo" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#ffe6cc;strokeColor=#ff9900;" parent="system-task-region" vertex="1">
+          <mxGeometry x="50" y="100" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="system-task-3" value="Doing" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#dae8fc;strokeColor=#3399ff;" parent="system-task-region" vertex="1">
+          <mxGeometry x="50" y="150" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="system-task-4" value="Done" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#d5e8d4;strokeColor=#00aa00;" parent="system-task-region" vertex="1">
+          <mxGeometry x="50" y="200" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="system-task-5" value="Edit Mode / Deleted" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-task-region" vertex="1">
+          <mxGeometry x="50" y="250" width="170" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="system-priority-region" value="Priority Auto-calculation" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Poppins;fillColor=#d5e8d4;strokeColor=#82b366;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="630" y="50" width="270" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="system-priority-1" value="Low Priority" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#d5e8d4;strokeColor=#00ff00;" parent="system-priority-region" vertex="1">
+          <mxGeometry x="50" y="50" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-priority-2" value="Medium Priority" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#ffe6cc;strokeColor=#ff9900;" parent="system-priority-region" vertex="1">
+          <mxGeometry x="50" y="105" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-priority-3" value="High Priority" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#f8cecc;strokeColor=#ff0000;" parent="system-priority-region" vertex="1">
+          <mxGeometry x="50" y="160" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-priority-4" value="Overdue / Done" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#8b0000;strokeColor=#8b0000;fontColor=#ffffff;" parent="system-priority-region" vertex="1">
+          <mxGeometry x="50" y="215" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-ui-region" value="UI Modal State" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Poppins;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="930" y="50" width="240" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="system-ui-1" value="Closed" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-ui-region" vertex="1">
+          <mxGeometry x="40" y="50" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-ui-2" value="Add Task Modal Open" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#fff2cc;strokeColor=#d6b656;" parent="system-ui-region" vertex="1">
+          <mxGeometry x="40" y="110" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-ui-3" value="Edit Task Modal Open" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="system-ui-region" vertex="1">
+          <mxGeometry x="40" y="170" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-ui-4" value="Transitioning" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-ui-region" vertex="1">
+          <mxGeometry x="40" y="230" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-theme-region" value="Theme State" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Poppins;fillColor=#fff2cc;strokeColor=#d6b656;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="30" y="360" width="270" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="system-theme-1" value="Light Mode" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#fff2cc;strokeColor=#d6b656;" parent="system-theme-region" vertex="1">
+          <mxGeometry x="50" y="50" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="system-theme-2" value="Dark Mode" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#333333;strokeColor=#333333;fontColor=#ffffff;" parent="system-theme-region" vertex="1">
+          <mxGeometry x="50" y="115" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="system-search-region" value="Search State" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Poppins;fillColor=#d5e8d4;strokeColor=#82b366;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="330" y="360" width="270" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="system-search-1" value="No Filter (All visible)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#d5e8d4;strokeColor=#82b366;" parent="system-search-region" vertex="1">
+          <mxGeometry x="50" y="50" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="system-search-2" value="Filtered (Matching only)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="system-search-region" vertex="1">
+          <mxGeometry x="50" y="115" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="system-sync-region" value="Real-time Sync State" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Poppins;fillColor=#f8cecc;strokeColor=#b85450;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="630" y="360" width="540" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="system-sync-1" value="Disconnected" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;" parent="system-sync-region" vertex="1">
+          <mxGeometry x="40" y="50" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-sync-2" value="Connected" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#d5e8d4;strokeColor=#82b366;" parent="system-sync-region" vertex="1">
+          <mxGeometry x="200" y="50" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-sync-3" value="Syncing Data" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Poppins;fillColor=#fff2cc;strokeColor=#d6b656;" parent="system-sync-region" vertex="1">
+          <mxGeometry x="360" y="50" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="system-sync-desc" value="onValue() listener active&#xa;Auto-updates on Firebase changes&#xa;No manual refresh needed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Poppins;fontColor=#666666;" parent="system-sync-region" vertex="1">
+          <mxGeometry x="40" y="110" width="450" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="system-example" value="📋 Example Scenario:&#xa;&#xa;User authenticated ➜ Viewing tasks in &quot;Doing&quot; state ➜ Priority auto-calculating (Medium) ➜&#xa;Light mode active ➜ No search filter ➜ Real-time sync connected ➜ All modals closed&#xa;&#xa;All these states exist concurrently!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontFamily=Poppins;align=left;verticalAlign=top;" parent="system-concurrent" vertex="1">
+          <mxGeometry x="30" y="570" width="1140" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
